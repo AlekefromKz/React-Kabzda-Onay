@@ -1,24 +1,61 @@
-.dialogs{
+.dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
 
-.dialogsItems{
+.dialogsItems {
 
 }
 
-.dialog{
+.dialog {
 
 }
 
-.active{
+.active {
     color: gold;
 }
 
-.messages{
+.messages {
 
 }
 
-.message{
+.message {
+    position: relative;
+}
 
+.dialogAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.friendMessage{
+    text-align: left;
+}
+
+.friendMessage:before{
+    content: "";
+    background: black;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
+
+.myMessage{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.myMessage:after{
+    content: "";
+    background: black;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-bottom: 2px;
+    margin-left: 5px;
 }
