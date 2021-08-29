@@ -8,7 +8,6 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
-import {addMessage, updateNewMessage} from "./redux/state";
 
 
 function App(props) {
@@ -20,8 +19,7 @@ function App(props) {
                 <Route path="/profile" render={() =>
                     <Profile
                         profilePage={props.state.profilePage}
-                        addPost={props.addPost}
-                        UpdateNewPost={props.updateNewPost}
+                        dispatch={props.dispatch}
                     />
                 }
                 />
