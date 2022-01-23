@@ -1,5 +1,8 @@
-const ADD_POST = 'ADD-NEW-POST';
+const CONST_ADD_POST = 'ADD-NEW-POST';
 const CONST_UPDATE_NEW_POST = 'UPDATE-NEW-POST-TEXT';
+const CONST_ADD_MESSAGE = 'ADD-NEW-MESSAGE';
+const CONST_UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE-TEXT';
+
 
 const store = {
     _state: {
@@ -56,7 +59,7 @@ const store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
+        if (action.type === CONST_ADD_POST) {
             let newPost = {
                 id: 6,
                 message: this._state.profilePage.newPostText,
@@ -69,50 +72,37 @@ const store = {
         } else if (action.type === CONST_UPDATE_NEW_POST) {
             this._state.profilePage.newPostText = action.postMessage;
             this._callSubscriber(this._state);
+        } else if (action.type === CONST_ADD_MESSAGE) {
+            let newMessage = {
+                id: 6,
+                message: this._state.dialogsPage.newMessageText,
+                my: true
+            };
+
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessageText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === CONST_UPDATE_NEW_MESSAGE){
+            this._state.dialogsPage.newMessageText = action.messageMessage;
+            this._callSubscriber(this._state);
         }
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-
+// POSTS
+export const addPostActionCreator = () => ({type: CONST_ADD_POST})
 export const updateNewPostActionCreator = (text) => ({
     type: CONST_UPDATE_NEW_POST,
     postMessage: text
 });
 
+// MESSAGES
+export const addMessageActionCreator = () => ({type: CONST_ADD_MESSAGE})
+export const updateNewMessageActionCreator = (text) => ({
+    type: CONST_UPDATE_NEW_MESSAGE,
+    messageMessage: text
+});
+
 
 export default store;
 window.store = store;
-
-// addPost() {
-//     let newPost = {
-//         id: 6,
-//         message: this._state.profilePage.newPostText,
-//         likesCount: 0
-//     };
-//
-//     this._state.profilePage.posts.push(newPost);
-//     this._state.profilePage.newPostText = '';
-//     this._callSubscriber(this._state);
-// },
-//
-// updateNewPost(postMessage) {
-//     this._state.profilePage.newPostText = postMessage;
-//     this._callSubscriber(this._state);
-// },
-
-// addMessage() {
-//     let newMessage = {
-//         id: 3,
-//         message: this._state.dialogsPage.newMessageText,
-//         my: true
-//     }
-//     this._state.dialogsPage.messages.push(newMessage);
-//     this._state.dialogsPage.newMessageText = '';
-//     this._callSubscriber(this._state);
-// },
-//
-// updateNewMessage(message) {
-//     this._state.dialogsPage.newMessageText = message;
-//     this._callSubscriber(this._state);
-// },
