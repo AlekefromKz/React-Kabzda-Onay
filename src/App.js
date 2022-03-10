@@ -10,18 +10,18 @@ import Music from "./components/Music/Music";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
-function App(props) {
+const App = () => {
     return (
         <div className="app-wrapper">
             <Header/>
-            <Navbar state={props.state.sidebar}/>
+            <Navbar />
             <div className="app-wrapper-content">
                 <Route path="/profile" render={() =>
-                    <Profile store={props.store} />
+                    <Profile/>
                 }
                 />
                 <Route path="/dialogs" render={() =>
-                    <DialogsContainer store={props.store} />
+                    <DialogsContainer/>
                 }/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
