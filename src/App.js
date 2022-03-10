@@ -8,26 +8,22 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 function App(props) {
+    let state = props.store.getState();
     return (
         <div className="app-wrapper">
             <Header/>
-            <Navbar state={props.state.sidebar}/>
+            <Navbar state={state.sidebar}/>
             <div className="app-wrapper-content">
                 <Route path="/profile" render={() =>
-                    <Profile
-                        profilePage={props.state.profilePage}
-                        dispatch={props.dispatch}
-                    />
+                    <Profile store={props.store} />
                 }
                 />
                 <Route path="/dialogs" render={() =>
-                    <Dialogs
-                        dialogsPage={props.state.dialogsPage}
-                        dispatch={props.dispatch}
-                    />
+                    <DialogsContainer store={props.store} />
                 }/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
