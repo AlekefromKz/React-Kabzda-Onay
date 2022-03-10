@@ -3,19 +3,18 @@ import s from "./Dialogs.module.css";
 
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
-    let dialogElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
-    let messageElements = props.dialogsPage.messages.map(m => <Message message={m.message} my={m.my}/>)
+    const dialogElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
+    const messageElements = props.dialogsPage.messages.map(m => <Message message={m.message} my={m.my}/>)
 
     const addMessage = () => {
-        props.addMessage(addMessageActionCreator());
+        props.addMessageCallback();
     }
 
     const updateNewMessage = (e) => {
-        props.updateNewMessage(e.target.value);
+        props.updateNewMessageCallback(e.target.value);
     }
 
     return (

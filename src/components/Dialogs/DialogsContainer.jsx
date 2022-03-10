@@ -4,17 +4,17 @@ import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redu
 const DialogsContainer = (props) => {
     let state = props.store.getState();
 
-    const addMessage = () => {
+    const addMessageCallback = () => {
         props.store.dispatch(addMessageActionCreator());
     }
 
-    const updateNewMessage = (text) => {
+    const updateNewMessageCallback = (text) => {
         props.store.dispatch(updateNewMessageActionCreator(text));
     }
 
     return <Dialogs
-        addMessage={addMessage}
-        updateNewMessage={updateNewMessage}
+        addMessageCallback={addMessageCallback}
+        updateNewMessageCallback={updateNewMessageCallback}
         dialogsPage={state.dialogsPage}
     />
 }

@@ -8,11 +8,11 @@ const MyPosts = (props) => {
     let newPostRef = React.createRef();
 
     let addPost = () => {
-        props.addPost();
+        props.addPostCallback();
     }
 
     let updateNewPost = () => {
-        props.updateNewPostText(newPostRef.current.value);
+        props.updateNewPostTextCallback(newPostRef.current.value);
     }
 
     return (
