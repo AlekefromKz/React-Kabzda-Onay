@@ -1,8 +1,10 @@
+// NOT USED ANYMORE
+
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
-const store = {
+const oldStore = {
     _state: {
         dialogsPage: {
             dialogs: [
@@ -64,5 +66,5 @@ const store = {
     }
 }
 
-export default store;
-window.store = store;
+export default oldStore;
+window.store = oldStore;
