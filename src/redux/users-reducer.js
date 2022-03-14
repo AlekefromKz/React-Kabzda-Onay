@@ -1,6 +1,6 @@
 const FOLLOW_USER = 'FOLLOW-USER';
 const UNFOLLOW_USER = 'UNFOLLOW-USER';
-const LOAD_USERS = 'LOAD-USER';
+const SET_USERS = 'SET-USER';
 
 const initialState = {
     users: [],
@@ -36,7 +36,7 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
 
-        case LOAD_USERS:
+        case SET_USERS:
             return {
                 ...state,
                 users: [...state.users, ...action.users]
@@ -49,6 +49,6 @@ const usersReducer = (state = initialState, action) => {
 
 export const followUserAC = (userId) => ({type: FOLLOW_USER, userId})
 export const unfollowUserAC = (userId) => ({type: UNFOLLOW_USER, userId})
-export const loadUsersAC = (users) => ({type: LOAD_USERS, users})
+export const setUsersAC = (users) => ({type: SET_USERS, users})
 
 export default usersReducer;

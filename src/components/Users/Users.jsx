@@ -1,45 +1,21 @@
 import React from "react";
 import styles from "./users.module.css";
+import * as axios from "axios";
+import userPhoto from "../../assets/images/user.png"
 
 const Users = (props) => {
-    const users = [
-        {
-            id: 1,
-            fullName: "Almaz",
-            status: "Practice makes perfect",
-            followed: true,
-            location: {city: "Tallinn", country: "Estonia"},
-            photoUrl: "https://astanatimes.com/wp-content/uploads/2020/05/Dimash-Kudaibergen-performing-at-the-ABU-Song-Festival-in-Tokyo-Japan.-Photo-credit-inform.kz_.jpg",
-        },
-        {
-            id: 2,
-            fullName: "Alikhan",
-            status: "It does",
-            followed: false,
-            location: {city: "Almaty", country: "Kazakhstan"},
-            photoUrl: "https://astanatimes.com/wp-content/uploads/2020/05/Dimash-Kudaibergen-performing-at-the-ABU-Song-Festival-in-Tokyo-Japan.-Photo-credit-inform.kz_.jpg",
-        },
-        {
-            id: 3,
-            fullName: "Madiyar",
-            status: "Indeed",
-            followed: true,
-            location: {city: "Astana", country: "Kazakhstan"},
-            photoUrl: "https://astanatimes.com/wp-content/uploads/2020/05/Dimash-Kudaibergen-performing-at-the-ABU-Song-Festival-in-Tokyo-Japan.-Photo-credit-inform.kz_.jpg",
-        },
-    ]
-
     if (props.users.length === 0) {
-        props.loadUsers(
-            users
-        )
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                props.setUsers(response.data.items);
+            });
     }
 
     return <div>
         {
             props.users.map(user => <div key={user.id}>
             <span>
-                <div><img src={user.photoUrl} className={styles.userPhoto}/></div>
+                <div><img src={user.photos.small ? user.photos.small : userPhoto} className={styles.userPhoto}/></div>
                 <div>
                     {user.followed
                         ? <button onClick={() => props.unfollowUser(user.id)}>Unfollow</button>
@@ -49,12 +25,12 @@ const Users = (props) => {
             </span>
                 <span>
                 <span>
-                    <div>{user.fullName}</div>
+                    <div>{user.name}</div>
                     <div>{user.status}</div>
                 </span>
                 <span>
-                    <div>{user.location.country}</div>
-                    <div>{user.location.city}</div>
+                    <div>{"user.location.country"}</div>
+                    <div>{"user.location.city"}</div>
                 </span>
             </span>
 
