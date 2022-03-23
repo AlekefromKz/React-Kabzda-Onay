@@ -35,32 +35,16 @@ const Users = (props) => {
                                     {!user.followed
                                         ? <button
                                             disabled={props.followingInProgress.some(id => id === user.id)}
-                                            onClick={
-                                                () => {
-                                                    props.toggleFollowUsers(true, user.id);
-                                                    usersAPI.followUser(user.id)
-                                                        .then(data => {
-                                                            if (data.resultCode === 0) {
-                                                                props.followUser(user.id)
-                                                            }
-                                                            props.toggleFollowUsers(false, user.id);
-                                                        });
-                                                }
-                                            }>Follow</button>
+                                            onClick={() => {
+                                                props.followUser(user.id)
+                                            }}>
+                                            Follow</button>
                                         : <button
                                             disabled={props.followingInProgress.some(id => id === user.id)}
-                                            onClick={
-                                                () => {
-                                                    props.toggleFollowUsers(true, user.id);
-                                                    usersAPI.unfollowUser(user.id)
-                                                        .then(data => {
-                                                            if (data.resultCode === 0) {
-                                                                props.unfollowUser(user.id)
-                                                            }
-                                                            props.toggleFollowUsers(false, user.id);
-                                                        });
-                                                }
-                                            }>Unfollow</button>
+                                            onClick={() => {
+                                                props.unfollowUser(user.id)
+                                            }}>
+                                            Unfollow</button>
                                     }
                                 </div>
                             </span>
