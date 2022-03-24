@@ -9,7 +9,7 @@ let initialState = {
         {id: 4, name: 'Qanat'},
         {id: 5, name: 'Dinara'},
     ],
-        messages: [
+    messages: [
         {id: 1, message: 'Salem', my: true},
         {id: 2, message: 'Sagan', my: true},
         {id: 3, message: 'Qazaq', my: false},
@@ -19,7 +19,7 @@ let initialState = {
         {id: 3, message: 'Qazagym', my: true},
         {id: 3, message: 'Menin', my: false},
     ],
-        newMessageText: ''
+    newMessageText: ''
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -45,9 +45,9 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessageActionCreator = () => ({type: CONST_ADD_MESSAGE})
+export const addMessage = () => ({type: CONST_ADD_MESSAGE})
 
-export const updateNewMessageActionCreator = (text) => ({
+export const updateNewMessage = (text) => ({
     type: CONST_UPDATE_NEW_MESSAGE,
     messageMessage: text
 });
