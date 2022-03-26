@@ -36,4 +36,16 @@ export const setAuthUserData = () => {
     };
 };
 
+export const login = (email, password, rememberMe) => {
+    return (dispatch) => {
+        authAPI.me()
+            .then(data => {
+                if (data.resultCode === 0) {
+                    const {id, email, login} = data.data;
+                    dispatch(setAuthUserDataSuccess(id, email, login));
+                }
+            });
+    };
+};
+
 export default authReducer;
