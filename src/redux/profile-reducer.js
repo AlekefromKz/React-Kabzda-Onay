@@ -1,7 +1,6 @@
-import {profileAPI, usersAPI as profileAPIi, usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 
 const CONST_ADD_POST = 'ADD-NEW-POST';
-const CONST_UPDATE_NEW_POST = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -11,7 +10,6 @@ let initialState = {
         message: "Hey bro",
         likesCount: 15
     }, {id: 1, message: "Hey bro", likesCount: 15}, {id: 2, message: "My second post", likesCount: 128}],
-    newPostText: '',
     profile: null,
     status: "",
 }
@@ -21,12 +19,9 @@ const profileReducer = (state = initialState, action) => {
         case CONST_ADD_POST:
             return {
                 ...state, posts: [...state.posts, {
-                    id: 6, message: state.newPostText, likesCount: 0
-                }], newPostText: "",
+                    id: 6, message: action.newPostBody, likesCount: 0
+                }],
             }
-
-        case CONST_UPDATE_NEW_POST:
-            return {...state, newPostText: action.newPostText}
 
         case SET_USER_PROFILE:
             return {...state, profile: action.profile}
@@ -39,8 +34,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type: CONST_ADD_POST})
-export const updateNewPostActionCreator = (text) => ({type: CONST_UPDATE_NEW_POST, postMessage: text});
+export const addPostActionCreator = (newPostBody) => ({type: CONST_ADD_POST, newPostBody})
 export const getUserProfileSuccess = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setProfileStatus = (status) => ({type: SET_STATUS, status});
 
@@ -67,7 +61,7 @@ export const updateProfileStatus = (statusText) => {
     return (dispatch) => {
         profileAPI.updateStatus(statusText)
             .then(data => {
-                if(data.resultCode === 0){
+                if (data.resultCode === 0) {
                     dispatch(setProfileStatus(statusText));
                 }
             })

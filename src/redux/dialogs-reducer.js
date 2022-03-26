@@ -1,5 +1,4 @@
 const CONST_ADD_MESSAGE = 'ADD-NEW-MESSAGE';
-const CONST_UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let initialState = {
     dialogs: [
@@ -28,16 +27,11 @@ const dialogsReducer = (state = initialState, action) => {
         case CONST_ADD_MESSAGE:
             let newMessage = {
                 id: 6,
-                message: state.newMessageText,
+                message: action.message,
                 my: true
             };
             stateCopy.messages = [...stateCopy.messages];
             stateCopy.messages.push(newMessage);
-            stateCopy.newMessageText = '';
-            return stateCopy;
-
-        case CONST_UPDATE_NEW_MESSAGE:
-            stateCopy.newMessageText = action.messageMessage;
             return stateCopy;
 
         default:
@@ -45,11 +39,6 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessage = () => ({type: CONST_ADD_MESSAGE})
-
-export const updateNewMessage = (text) => ({
-    type: CONST_UPDATE_NEW_MESSAGE,
-    messageMessage: text
-});
+export const addMessage = (message) => ({type: CONST_ADD_MESSAGE, message})
 
 export default dialogsReducer;
