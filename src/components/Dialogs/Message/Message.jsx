@@ -1,16 +1,14 @@
-import React from "react";
-import s from "./../Dialogs.module.css";
+import React from 'react';
+import s from './../Dialogs.module.css';
 
-const Message = (props) => {
-    let ownerClassName = ''
-    if (props.my){
-        ownerClassName = s.myMessage
+const Message = props => {
+        let ownerClassName = '';
+    if (props.my) {
+        ownerClassName = s.myMessage;
     } else {
-        ownerClassName = s.friendMessage
+        ownerClassName = s.friendMessage;
     }
-    return (
-        <p className={`${s.message} ${ownerClassName}`}>{props.message}</p>
-    )
-}
+    return <p className={`${s.message} ${ownerClassName}`}>{props.message}</p>;
+};
 
 export default Message;
