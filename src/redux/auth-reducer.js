@@ -29,12 +29,13 @@ export const setAuthUserDataSuccess = (userId, email, login, isAuth) => ({
 
 export const setAuthUserData = () => {
     return dispatch => {
-        authAPI.me().then(data => {
-            if (data.resultCode === 0) {
-                const { id, email, login } = data.data;
-                dispatch(setAuthUserDataSuccess(id, email, login, true));
-            }
-        });
+        authAPI.me()
+            .then(data => {
+                if (data.resultCode === 0) {
+                    const {id, email, login} = data.data;
+                    dispatch(setAuthUserDataSuccess(id, email, login, true));
+                }
+            });
     };
 };
 

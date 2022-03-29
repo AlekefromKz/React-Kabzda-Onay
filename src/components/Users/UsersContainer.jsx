@@ -4,7 +4,6 @@ import {followUser, loadUsers, setCurrentPage, unfollowUser} from '../../redux/u
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import {compose} from 'redux';
-import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -53,5 +52,4 @@ export default compose(
         setCurrentPage,
         loadUsers,
     }),
-    withAuthRedirect,
 )(UsersContainer);
