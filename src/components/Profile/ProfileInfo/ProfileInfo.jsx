@@ -5,7 +5,7 @@ import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = props => {
     if (!props.profile) {
-        return <Preloader/>;
+        return <Preloader />;
     }
 
     const profile = props.profile;
@@ -16,12 +16,12 @@ const ProfileInfo = props => {
                 <p>
                     Full name: <b>{profile.fullName}</b>
                 </p>
-                <img src={profile.photos?.large}/>
+                <img src={profile.photos?.large} />
                 <p>
                     About me: <b>{profile.aboutMe}</b>
                 </p>
                 <div>
-                    <ProfileStatus status={props.status} updateProfileStatus={props.updateProfileStatus}/>
+                    <ProfileStatus status={props.status} updateProfileStatus={props.updateProfileStatus} />
                 </div>
             </div>
         </div>

@@ -25,10 +25,10 @@ const NewPostForm = props => {
     );
 };
 
-const NewPostReduxForm = reduxForm({form: 'newPost'})(NewPostForm);
+const NewPostReduxForm = reduxForm({ form: 'newPost' })(NewPostForm);
 
 const MyPosts = props => {
-    const postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+    const postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
     const addNewPost = values => {
         props.addPostCallback(values.newPostBody);
@@ -37,7 +37,7 @@ const MyPosts = props => {
     return (
         <div className={s.MyPosts}>
             <h3>my posts</h3>
-            <NewPostReduxForm onSubmit={addNewPost}/>
+            <NewPostReduxForm onSubmit={addNewPost} />
             <div className={s.postsBlock}>{postElements}</div>
         </div>
     );

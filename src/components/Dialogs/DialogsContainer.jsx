@@ -10,4 +10,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default compose(connect(mapStateToProps, {addMessage}), withAuthRedirect)(Dialogs);
+export default compose(connect(mapStateToProps, { addMessage }), withAuthRedirect)(Dialogs);

@@ -27,11 +27,11 @@ const NewMessageForm = props => {
     );
 };
 
-const NewMessageReduxForm = reduxForm({form: 'dialogsNewMessage'})(NewMessageForm);
+const NewMessageReduxForm = reduxForm({ form: 'dialogsNewMessage' })(NewMessageForm);
 
 const Dialogs = props => {
-    const dialogElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    const messageElements = props.dialogsPage.messages.map(m => <Message message={m.message} my={m.my}/>);
+    const dialogElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
+    const messageElements = props.dialogsPage.messages.map(m => <Message message={m.message} my={m.my} />);
 
     const addNewMessage = values => {
         props.addMessage(values.newMessageBody);
@@ -42,7 +42,7 @@ const Dialogs = props => {
             <div className={s.dialogsItems}>{dialogElements}</div>
             <div className={s.messages}>
                 {messageElements}
-                <NewMessageReduxForm onSubmit={addNewMessage}/>
+                <NewMessageReduxForm onSubmit={addNewMessage} />
             </div>
         </div>
     );
