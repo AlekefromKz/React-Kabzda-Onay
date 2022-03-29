@@ -2,7 +2,7 @@ import React from 'react';
 import s from './../Dialogs.module.css';
 
 const Message = props => {
-        let ownerClassName = '';
+    let ownerClassName = '';
     if (props.my) {
         ownerClassName = s.myMessage;
     } else {

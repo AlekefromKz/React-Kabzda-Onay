@@ -1,5 +1,5 @@
-import { authAPI, usersAPI } from '../api/api';
-import { stopSubmit } from 'redux-form';
+import {authAPI} from '../api/api';
+import {stopSubmit} from 'redux-form';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -30,7 +30,6 @@ export const setAuthUserDataSuccess = (userId, email, login, isAuth) => ({
 export const setAuthUserData = () => {
     return dispatch => {
         authAPI.me().then(data => {
-            debugger
             if (data.resultCode === 0) {
                 const { id, email, login } = data.data;
                 dispatch(setAuthUserDataSuccess(id, email, login, true));
