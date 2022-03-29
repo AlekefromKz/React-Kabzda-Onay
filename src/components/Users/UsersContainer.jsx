@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { followUser, loadUsers, setCurrentPage, unfollowUser } from '../../redux/users-reducer';
+import {connect} from 'react-redux';
+import {followUser, loadUsers, setCurrentPage, unfollowUser} from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
-import { compose } from 'redux';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import {compose} from 'redux';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -19,7 +19,7 @@ class UsersContainer extends React.Component {
     render() {
         return (
             <>
-                {this.props.isFetching ? <Preloader /> : null}
+                {this.props.isFetching ? <Preloader/> : null}
                 <Users
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
