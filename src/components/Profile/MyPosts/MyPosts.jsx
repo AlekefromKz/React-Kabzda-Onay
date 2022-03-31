@@ -10,7 +10,7 @@ const maxLength100 = maxLengthValidator(100);
 const NewPostForm = props => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
+            <div>React.memo
                 <Field
                     component={Textarea}
                     name={'newPostBody'}

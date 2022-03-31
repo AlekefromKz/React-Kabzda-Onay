@@ -1,3 +1,4 @@
+// not used anymore
 import React from 'react';
 
 class ProfileStatus extends React.Component {

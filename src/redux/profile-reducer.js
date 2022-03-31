@@ -8,11 +8,7 @@ let initialState = {
     posts: [
         { id: 1, message: 'Hey bro', likesCount: 15 },
         { id: 1, message: 'Hey bro', likesCount: 15 },
-        {
-            id: 1,
-            message: 'Hey bro',
-            likesCount: 15,
-        },
+        { id: 1, message: 'Hey bro', likesCount: 15 },
         { id: 1, message: 'Hey bro', likesCount: 15 },
         { id: 2, message: 'My second post', likesCount: 128 },
     ],
