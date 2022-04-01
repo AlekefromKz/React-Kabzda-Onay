@@ -1,27 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Paginator.module.css';
 
 
-const Paginator = ({totalUsersCount, currentPage, onPageChanged, pageSize}) => {
-    let pagesCount = Math.ceil(totalUsersCount / pageSize);
+const Paginator = ({totalItemsCount, currentPage, onPageChanged, pageSize, portionSize = 10}) => {
+    let pagesCount = Math.ceil(totalItemsCount / pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
 
+    const portionCount = Math.ceil(pagesCount / portionSize);
+    const [currentPortion, setCurrentPortion] = useState(1);
+    const leftBorder = (currentPortion - 1) * portionSize + 1;
+    const rightBorder = currentPortion * portionSize;
+
     return <div>
-        {pages.map(p => {
-            return (
-                <span
-                    className={currentPage === p && styles.selectedPage}
-                    onClick={e => {
-                        onPageChanged(p);
-                    }}
-                >
-                            {p}
-                        </span>
-            );
-        })}
+        {currentPortion > 1 && <button onClick={() => setCurrentPortion(currentPortion - 1)}>{"<<<<==="}</button>}
+        {pages
+            .filter(p => p >= leftBorder && p <= rightBorder)
+            .map(p => {
+                return (
+                    <span
+                        className={currentPage === p && styles.selectedPage}
+                        onClick={e => {
+                            onPageChanged(p);
+                        }}
+                    >{p} </span>
+                );
+            })}
+        {portionCount > currentPortion &&
+            <button onClick={() => setCurrentPortion(currentPortion + 1)}>{"===>>>"}</button>
+        }
+
     </div>
 };
 
