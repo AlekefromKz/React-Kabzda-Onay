@@ -7,10 +7,10 @@ const SET_STATUS = 'SET_STATUS';
 let initialState = {
     posts: [
         { id: 1, message: 'Hey bro', likesCount: 15 },
-        { id: 1, message: 'Hey bro', likesCount: 15 },
-        { id: 1, message: 'Hey bro', likesCount: 15 },
-        { id: 1, message: 'Hey bro', likesCount: 15 },
-        { id: 2, message: 'My second post', likesCount: 128 },
+        { id: 2, message: 'Hey bro', likesCount: 15 },
+        { id: 3, message: 'Hey bro', likesCount: 15 },
+        { id: 4, message: 'Hey bro', likesCount: 15 },
+        { id: 5, message: 'My second post', likesCount: 128 },
     ],
     profile: null,
     status: '',
