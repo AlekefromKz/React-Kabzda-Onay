@@ -1,4 +1,4 @@
-const CONST_ADD_MESSAGE = 'ADD-NEW-MESSAGE';
+const CONST_ADD_MESSAGE = '/dialogs/ADD-NEW-MESSAGE';
 
 let initialState = {
     dialogs: [

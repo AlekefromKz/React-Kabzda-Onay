@@ -2,15 +2,15 @@ import React from 'react';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = props => {
+const Profile = ({profile, status, updateProfileStatus}) => {
     return (
         <div>
             <ProfileInfo
-                profile={props.profile}
-                status={props.status}
-                updateProfileStatus={props.updateProfileStatus}
+                profile={profile}
+                status={status}
+                updateProfileStatus={updateProfileStatus}
             />
-            <MyPostsContainer />
+            <MyPostsContainer/>
         </div>
     );
 };
