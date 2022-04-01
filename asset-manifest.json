@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/React-Kabzda-Onay/static/css/main.30240664.chunk.css",
+    "main.js": "/React-Kabzda-Onay/static/js/main.5ab07aa2.chunk.js",
+    "main.js.map": "/React-Kabzda-Onay/static/js/main.5ab07aa2.chunk.js.map",
+    "runtime-main.js": "/React-Kabzda-Onay/static/js/runtime-main.ce478405.js",
+    "runtime-main.js.map": "/React-Kabzda-Onay/static/js/runtime-main.ce478405.js.map",
+    "static/js/2.498ff48c.chunk.js": "/React-Kabzda-Onay/static/js/2.498ff48c.chunk.js",
+    "static/js/2.498ff48c.chunk.js.map": "/React-Kabzda-Onay/static/js/2.498ff48c.chunk.js.map",
+    "static/css/3.a6529dc5.chunk.css": "/React-Kabzda-Onay/static/css/3.a6529dc5.chunk.css",
+    "static/js/3.fe96d5c4.chunk.js": "/React-Kabzda-Onay/static/js/3.fe96d5c4.chunk.js",
+    "static/js/3.fe96d5c4.chunk.js.map": "/React-Kabzda-Onay/static/js/3.fe96d5c4.chunk.js.map",
+    "static/css/4.0d21e813.chunk.css": "/React-Kabzda-Onay/static/css/4.0d21e813.chunk.css",
+    "static/js/4.f710b762.chunk.js": "/React-Kabzda-Onay/static/js/4.f710b762.chunk.js",
+    "static/js/4.f710b762.chunk.js.map": "/React-Kabzda-Onay/static/js/4.f710b762.chunk.js.map",
+    "index.html": "/React-Kabzda-Onay/index.html",
+    "static/css/3.a6529dc5.chunk.css.map": "/React-Kabzda-Onay/static/css/3.a6529dc5.chunk.css.map",
+    "static/css/4.0d21e813.chunk.css.map": "/React-Kabzda-Onay/static/css/4.0d21e813.chunk.css.map",
+    "static/css/main.30240664.chunk.css.map": "/React-Kabzda-Onay/static/css/main.30240664.chunk.css.map",
+    "static/js/2.498ff48c.chunk.js.LICENSE.txt": "/React-Kabzda-Onay/static/js/2.498ff48c.chunk.js.LICENSE.txt",
+    "static/media/loader.c86c5b21.svg": "/React-Kabzda-Onay/static/media/loader.c86c5b21.svg",
+    "static/media/user.73a0bc1f.png": "/React-Kabzda-Onay/static/media/user.73a0bc1f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ce478405.js",
+    "static/js/2.498ff48c.chunk.js",
+    "static/css/main.30240664.chunk.css",
+    "static/js/main.5ab07aa2.chunk.js"
+  ]
+}
