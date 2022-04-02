@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 const Header = props => {
     return (
         <header className={s.header}>
-            <img src="https://www.tehnopol.ee/wp-content/uploads/2021/01/Tehnopol_logo_RGB.png"></img>
+            <img alt={""} src="https://www.tehnopol.ee/wp-content/uploads/2021/01/Tehnopol_logo_RGB.png"></img>
             <div className={s.loginBlock}>
                 {props.isAuth ? (
                     <div>

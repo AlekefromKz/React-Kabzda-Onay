@@ -20,11 +20,6 @@ export const usersAPI = {
     unfollowUser(userId) {
         return instance.delete('follow/' + userId).then(response => response.data);
     },
-
-    getProfile(userId) {
-        console.warn('Obsolete method. Use profileAPI');
-        return profileAPI.getProfile(userId);
-    },
 };
 
 export const profileAPI = {

@@ -4,7 +4,7 @@ import loader from '../../../assets/images/loader.svg';
 const Preloader = () => {
     return (
         <div style={{ backgroundColor: 'white' }}>
-            <img src={loader} />
+            <img alt={""} src={loader} />
         </div>
     );
 };

@@ -19,7 +19,7 @@ const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContaine
 const App = props => {
     useEffect(() => {
         props.initializeApp();
-    }, []);
+    });
 
     if (!props.initialized) {
         return <Preloader />;

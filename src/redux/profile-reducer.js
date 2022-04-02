@@ -1,10 +1,11 @@
-import {profileAPI, usersAPI} from '../api/api';
+import {profileAPI} from '../api/api';
 import {stopSubmit} from 'redux-form';
 
 const CONST_ADD_POST = 'ADD-NEW-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const SAVE_PHOTO = 'SAVE_PHOTO';
+const PROFILE_UPDATED_SUCCESS = 'PROFILE_UPDATED_SUCCESS';
 
 let initialState = {
     posts: [
@@ -16,6 +17,7 @@ let initialState = {
     ],
     profile: null,
     status: '',
+    profileUpdatedSuccess: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -42,6 +44,9 @@ const profileReducer = (state = initialState, action) => {
         case SAVE_PHOTO:
             return { ...state, profile: { ...state.profile, photos: action.photos } };
 
+        case PROFILE_UPDATED_SUCCESS:
+            return { ...state, profileUpdatedSuccess: action.profileUpdatedSuccess };
+
         default:
             return state;
     }
@@ -51,10 +56,11 @@ export const addPostActionCreator = newPostBody => ({ type: CONST_ADD_POST, newP
 export const getUserProfileSuccess = profile => ({ type: SET_USER_PROFILE, profile });
 export const setProfileStatus = status => ({ type: SET_STATUS, status });
 export const savePhotoSuccess = photos => ({ type: SAVE_PHOTO, photos });
+export const toggleProfileUpdatedSuccess = profileUpdatedSuccess => ({ type: PROFILE_UPDATED_SUCCESS, profileUpdatedSuccess });
 
 export const getUserProfile = userId => {
     return async dispatch => {
-        const data = await usersAPI.getProfile(userId);
+        const data = await profileAPI.getProfile(userId);
         dispatch(getUserProfileSuccess(data));
     };
 };
@@ -89,10 +95,11 @@ export const saveProfile = profile => {
         const data = await profileAPI.saveProfile(profile);
         if (data.resultCode === 0) {
             dispatch(getUserProfile(getState().auth.userId));
+            dispatch(toggleProfileUpdatedSuccess(true))
         } else {
             const message = data.messages.length > 0 ? data.messages[0] : 'An error occurred!';
             dispatch(stopSubmit('profile-edit', { _error: message }));
-            return Promise.reject(message);
+            dispatch(toggleProfileUpdatedSuccess(false))
         }
     };
 };
