@@ -11,16 +11,16 @@ import {
     getPageSize,
     getTotalUsersCount,
     getUsers,
-} from "../../redux/users-selector";
+} from '../../redux/users-selector';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        const {currentPage, pageSize, loadUsers} = this.props;
+        const { currentPage, pageSize, loadUsers } = this.props;
         loadUsers(currentPage, pageSize);
     }
 
     onPageChanged = pageNumber => {
-        const {setCurrentPage, loadUsers, pageSize} = this.props;
+        const { setCurrentPage, loadUsers, pageSize } = this.props;
         setCurrentPage(pageNumber);
         loadUsers(pageNumber, pageSize);
     };
@@ -28,7 +28,7 @@ class UsersContainer extends React.Component {
     render() {
         return (
             <>
-                {this.props.isFetching ? <Preloader/> : null}
+                {this.props.isFetching ? <Preloader /> : null}
                 <Users
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
@@ -44,7 +44,7 @@ class UsersContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),

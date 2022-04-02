@@ -10,7 +10,8 @@ const maxLength100 = maxLengthValidator(100);
 const NewPostForm = props => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>React.memo
+            <div>
+                React.memo
                 <Field
                     component={Textarea}
                     name={'newPostBody'}
@@ -28,7 +29,7 @@ const NewPostForm = props => {
 const NewPostReduxForm = reduxForm({ form: 'newPost' })(NewPostForm);
 
 const MyPosts = props => {
-    const postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
+    const postElements = props.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />);
 
     const addNewPost = values => {
         props.addPostCallback(values.newPostBody);

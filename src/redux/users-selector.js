@@ -1,29 +1,29 @@
-import {createSelector} from "reselect";
+import {createSelector} from 'reselect';
 
-const getUsersPrimitive = (state) => {
+const getUsersPrimitive = state => {
     return state.usersPage.users;
-}
+};
 
-export const getUsers = createSelector(getUsersPrimitive, (users) => {
-    return users.filter(u => true)
-})
+export const getUsers = createSelector(getUsersPrimitive, users => {
+    return users.filter(u => true);
+});
 
-export const getPageSize = (state) => {
-    return state.usersPage.pageSize
-}
+export const getPageSize = state => {
+    return state.usersPage.pageSize;
+};
 
-export const getCurrentPage = (state) => {
-    return state.usersPage.currentPage
-}
+export const getCurrentPage = state => {
+    return state.usersPage.currentPage;
+};
 
-export const getTotalUsersCount = (state) => {
-    return state.usersPage.totalUsersCount
-}
+export const getTotalUsersCount = state => {
+    return state.usersPage.totalUsersCount;
+};
 
-export const getIsFetching = (state) => {
-    return state.usersPage.isFetching
-}
+export const getIsFetching = state => {
+    return state.usersPage.isFetching;
+};
 
-export const getFollowingInProgress = (state) => {
-    return state.usersPage.followingInProgress
-}
+export const getFollowingInProgress = state => {
+    return state.usersPage.followingInProgress;
+};

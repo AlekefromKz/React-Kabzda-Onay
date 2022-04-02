@@ -2,7 +2,7 @@ import React from 'react';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = ({profile, status, updateProfileStatus, isOwner, savePhoto}) => {
+const Profile = ({ profile, status, updateProfileStatus, isOwner, savePhoto, saveProfile }) => {
     return (
         <div>
             <ProfileInfo
@@ -11,8 +11,9 @@ const Profile = ({profile, status, updateProfileStatus, isOwner, savePhoto}) => 
                 updateProfileStatus={updateProfileStatus}
                 isOwner={isOwner}
                 savePhoto={savePhoto}
+                saveProfile={saveProfile}
             />
-            <MyPostsContainer/>
+            <MyPostsContainer />
         </div>
     );
 };

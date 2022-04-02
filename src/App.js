@@ -8,55 +8,60 @@ import Music from './components/Music/Music';
 import Users from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
-import {connect} from "react-redux";
-import {compose} from "redux";
-import {initializeApp} from "./redux/app-reducer";
-import Preloader from "./components/common/Preloader/Preloader";
+import {connect} from 'react-redux';
+import {compose} from 'redux';
+import {initializeApp} from './redux/app-reducer';
+import Preloader from './components/common/Preloader/Preloader';
 
-const ProfileContainer = lazy(() => import( './components/Profile/ProfileContainer'));
-const DialogsContainer = lazy(() => import( './components/Dialogs/DialogsContainer'));
+const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
+const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
 
-const App = (props) => {
+const App = props => {
     useEffect(() => {
-        props.initializeApp()
+        props.initializeApp();
     }, []);
 
     if (!props.initialized) {
-        return <Preloader/>
+        return <Preloader />;
     }
 
     return (
         <div className="app-wrapper">
-            <HeaderContainer/>
-            <Navbar/>
+            <HeaderContainer />
+            <Navbar />
             <div className="app-wrapper-content">
-                <Route path="/profile/:userId?"
-                       render={() => {
-                           return <Suspense fallback={<div>Loading...</div>}>
-                               <ProfileContainer/>
-                           </Suspense>
-                       }}/>
-                <Route path="/dialogs"
-                       render={() => {
-                           return <Suspense fallback={<div>Loading...</div>}>
-                               <DialogsContainer/>
-                           </Suspense>
-                       }}/>
-                <Route path="/users" component={Users}/>
-                <Route path="/news" component={News}/>
-                <Route path="/music" component={Music}/>
-                <Route path="/settings" component={Settings}/>
-                <Route path="/login" component={Login}/>
+                <Route
+                    path="/profile/:userId?"
+                    render={() => {
+                        return (
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <ProfileContainer />
+                            </Suspense>
+                        );
+                    }}
+                />
+                <Route
+                    path="/dialogs"
+                    render={() => {
+                        return (
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <DialogsContainer />
+                            </Suspense>
+                        );
+                    }}
+                />
+                <Route path="/users" component={Users} />
+                <Route path="/news" component={News} />
+                <Route path="/music" component={Music} />
+                <Route path="/settings" component={Settings} />
+                <Route path="/login" component={Login} />
             </div>
         </div>
     );
 };
 
-const mapStateToProps = (state) => ({
-    initialized: state.app.initialized
-})
+const mapStateToProps = state => ({
+    initialized: state.app.initialized,
+});
 
-export default compose(
-    withRouter,
-    connect(mapStateToProps, {initializeApp})
-)(App);
+export default compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);
