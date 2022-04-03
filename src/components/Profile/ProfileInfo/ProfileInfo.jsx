@@ -9,11 +9,10 @@ const ProfileInfo = props => {
     const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
-        if (props.profileUpdatedSuccess){
+        if (props.profileUpdatedSuccess) {
             setEditMode(false);
         }
-    }, [props.profileUpdatedSuccess])
-
+    }, [props.profileUpdatedSuccess]);
 
     if (!props.profile) {
         return <Preloader />;
@@ -28,7 +27,7 @@ const ProfileInfo = props => {
     };
 
     const onProfileDataSubmit = data => {
-        props.saveProfile(data)
+        props.saveProfile(data);
     };
 
     return (
@@ -60,7 +59,7 @@ const Contact = ({ contactTitle, contactValue }) => {
 const ProfileData = ({ profile, isOwner, avaSelected, activateEditMode, status, updateProfileStatus }) => {
     return (
         <div>
-            <img alt={""} src={profile.photos?.large || userPhoto} className={s.userPhoto} />
+            <img alt={''} src={profile.photos?.large || userPhoto} className={s.userPhoto} />
             {isOwner && <input type="file" onChange={avaSelected} />}
             <ProfileStatus status={status} updateProfileStatus={updateProfileStatus} />
             <div className={s.profileDescriprion}>

@@ -56,7 +56,10 @@ export const addPostActionCreator = newPostBody => ({ type: CONST_ADD_POST, newP
 export const getUserProfileSuccess = profile => ({ type: SET_USER_PROFILE, profile });
 export const setProfileStatus = status => ({ type: SET_STATUS, status });
 export const savePhotoSuccess = photos => ({ type: SAVE_PHOTO, photos });
-export const toggleProfileUpdatedSuccess = profileUpdatedSuccess => ({ type: PROFILE_UPDATED_SUCCESS, profileUpdatedSuccess });
+export const toggleProfileUpdatedSuccess = profileUpdatedSuccess => ({
+    type: PROFILE_UPDATED_SUCCESS,
+    profileUpdatedSuccess,
+});
 
 export const getUserProfile = userId => {
     return async dispatch => {
@@ -95,11 +98,11 @@ export const saveProfile = profile => {
         const data = await profileAPI.saveProfile(profile);
         if (data.resultCode === 0) {
             dispatch(getUserProfile(getState().auth.userId));
-            dispatch(toggleProfileUpdatedSuccess(true))
+            dispatch(toggleProfileUpdatedSuccess(true));
         } else {
             const message = data.messages.length > 0 ? data.messages[0] : 'An error occurred!';
             dispatch(stopSubmit('profile-edit', { _error: message }));
-            dispatch(toggleProfileUpdatedSuccess(false))
+            dispatch(toggleProfileUpdatedSuccess(false));
         }
     };
 };

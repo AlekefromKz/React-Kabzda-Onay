@@ -13,8 +13,8 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
             {createField('Email', 'email', Input, [required])}
             {createField('Password', 'password', Input, [required], { type: 'password' })}
             {createField(null, 'rememberMe', Input, [], { type: 'checkbox' }, 'Remember me')}
-            {captchaUrl && <img src={captchaUrl} alt="captcha image"/>}
-            {captchaUrl && createField("Enter Symbols from image", "captcha", Input, [required])}
+            {captchaUrl && <img src={captchaUrl} alt="captcha image" />}
+            {captchaUrl && createField('Enter Symbols from image', 'captcha', Input, [required])}
             {error && <div className={style.formControlForm}>{error}</div>}
             <div>
                 <button>Login</button>
@@ -37,7 +37,7 @@ const Login = ({ login, isAuth, captchaUrl }) => {
     return (
         <div>
             <h1>Login Form</h1>
-            <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
         </div>
     );
 };

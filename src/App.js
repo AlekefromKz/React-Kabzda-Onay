@@ -18,16 +18,15 @@ const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContaine
 
 const App = props => {
     const catchAllUnhandledRejection = (reason, promise) => {
-        alert(promise)
         // ToDo: add thunk to show error and remove it
-    }
+    };
 
     useEffect(() => {
         props.initializeApp();
-        window.addEventListener("unhandledrejection", catchAllUnhandledRejection)
+        window.addEventListener('unhandledrejection', catchAllUnhandledRejection);
         return () => {
-            window.removeEventListener("unhandledrejection", catchAllUnhandledRejection)
-        }
+            window.removeEventListener('unhandledrejection', catchAllUnhandledRejection);
+        };
     });
 
     if (!props.initialized) {
@@ -40,7 +39,7 @@ const App = props => {
             <Navbar />
             <div className="app-wrapper-content">
                 <Switch>
-                    <Route exact path="/" render={() => <Redirect to={"/profile"} />}/>
+                    <Route exact path="/" render={() => <Redirect to={'/profile'} />} />
                     <Route
                         path="/profile/:userId?"
                         render={() => {
